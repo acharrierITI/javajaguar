@@ -5,10 +5,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import fr.intech.s5.service.Greetings;
 import fr.intech.s5.service.HelloIntech;
 
-public class GreetingsImpl implements Greetings {
-	
+public class GreetingImpl implements Greetings {
 	@Autowired
 	private HelloIntech hello;
+	
+	//CONSTRUCTOR
+	public GreetingImpl() {
+	}
+
+	public GreetingImpl(HelloIntech hello) {			
+		this.hello = hello;
+	}
 	
 	@Override
 	public String meetSomeOne(String pName) {
@@ -17,21 +24,9 @@ public class GreetingsImpl implements Greetings {
 	
 	public void setHello(HelloIntech pHello) {
         hello = pHello;
-	}
+ }
 	
-	/**
-	 * Constructeur
-	 */
-	public GreetingsImpl(){
-		
-	}
 	
-	/**
-	 * Constructeur
-	 * @param hello
-	 */
-	public GreetingsImpl(HelloIntech hello){
-		this.hello = hello;
-	}
+
 
 }
