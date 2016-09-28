@@ -23,4 +23,20 @@ public class Compte {
 	@JoinColumn(name="id_client")
 	private Client client;
 	
+	public double getSolde() {
+		return solde;
+	}
+
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 }
