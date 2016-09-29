@@ -4,6 +4,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.HibernateTemplate;
@@ -63,4 +64,7 @@ public class AbstractDefaultRollbackTestCase extends AbstractTransactionalJUnit4
 		//Utiliser OnTearDownIntransaction()
 	}
 	
+	@Test
+	public void setupTest() {
+	}
 }
