@@ -2,6 +2,7 @@ package fr.intech.s5.banque.persistence.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 

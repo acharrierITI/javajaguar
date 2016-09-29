@@ -2,6 +2,7 @@ package fr.intech.s5.banque.persistence.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Required;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -27,15 +28,6 @@ public interface ClientDao {
 	@Transactional(propagation=Propagation.MANDATORY)
 	public Client rechercherClientParId(long idClient) throws BanqueException;
 	
-	/**
-	 * Recherche un client par ID
-	 * @param idClient
-	 * @return
-	 * @throws BanqueException
-	 */
-	@Transactional(propagation=Propagation.MANDATORY)
-	public Client rechercherClientParEmail(String pEmail) throws BanqueException;
-
 	/**
 	 * Recherche tous les clients
 	 * @return
