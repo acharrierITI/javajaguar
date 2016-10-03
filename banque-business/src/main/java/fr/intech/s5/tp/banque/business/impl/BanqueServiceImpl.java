@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
-import fr.intech.s5.banque.persistence.dao.ClientDao;
 import fr.intech.s5.banque.persistence.dao.CompteDao;
+import fr.intech.s5.banque.persistence.dao.impl.ClientDaoImpl;
 import fr.intech.s5.banque.persistence.model.Client;
 import fr.intech.s5.banque.persistence.model.Compte;
 import fr.intech.s5.banque.util.exception.BanqueException;
@@ -14,7 +14,7 @@ import fr.intech.s5.tp.banque.business.service.BanqueService;
 public class BanqueServiceImpl implements BanqueService {
 
 	@Autowired
-	private ClientDao clientDao;
+	private ClientDaoImpl clientDao;
 
 	@Autowired
 	private CompteDao compteDao;
@@ -40,7 +40,7 @@ public class BanqueServiceImpl implements BanqueService {
 	}
 
 	@Override
-	public void faireUnVirement(long pNumeroADebiter, long pNumeroACrediter, double pMontant) throws BanqueException {
+	public void faireUnVirement(long pNumeroADebiter, long pNumeroACrediter, double pMontant) throws BanqueException{
 		try {
 			Compte compteADebiter = compteDao.rechercherCompteParNumero(pNumeroADebiter);
 			Compte compteACrediter = compteDao.rechercherCompteParNumero(pNumeroACrediter);
