@@ -2,7 +2,9 @@ package fr.intech.s5.banque.persistence.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import fr.intech.s5.banque.persistence.dao.ClientDao;
@@ -46,6 +48,19 @@ public class ClientDaoImpl implements ClientDao {
 			throw new BanqueException("Erreur lors de l'obtention de la liste des clients", e);
 		}
 		return listClient;
+	}
+	
+	@Override
+	public Client rechercherClientParEmail(String pEmail) throws BanqueException {
+		Client client = null;
+		try{
+			Criteria criteria = sessionFactory.getCurrentSession().createCriteria(Client.class);
+			client = (Client) criteria.add(Restrictions.eq("email", pEmail))
+			                             .uniqueResult();
+		}catch(Exception e){
+			throw new BanqueException("Erreur lors de la récupération du client", e);
+		}
+		return client;
 	}
 	
 	

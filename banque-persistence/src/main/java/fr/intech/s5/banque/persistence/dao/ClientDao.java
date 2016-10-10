@@ -36,4 +36,13 @@ public interface ClientDao {
 	@Transactional(propagation=Propagation.MANDATORY)
 	public List<Client> rechercherTousLesClients() throws BanqueException;
 	
+	
+	/**
+	 * Recherche un client par email
+	 * @return
+	 * @throws BanqueException
+	 */
+	@Transactional(propagation=Propagation.MANDATORY)
+	public Client rechercherClientParEmail(String email) throws BanqueException;
+	
 }
