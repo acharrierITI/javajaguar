@@ -19,6 +19,30 @@ public class Compte {
 	@Column(name="solde")
 	private double solde;
 	
+	public long getNumeroCompte() {
+		return numeroCompte;
+	}
+
+	public void setNumeroCompte(long numeroCompte) {
+		this.numeroCompte = numeroCompte;
+	}
+
+	public double getSolde() {
+		return solde;
+	}
+
+	public void setSolde(double solde) {
+		this.solde = solde;
+	}
+
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="id_client")
 	private Client client;
